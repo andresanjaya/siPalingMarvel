@@ -12,7 +12,7 @@ export default{
                   id: 'c1',
                   firstName: 'Andre',
                   lastName: 'Sanjaya',
-                  areas: ['frontend', 'UI/UX', 'career'],
+                  areas: ['frontend', 'backend', 'career'],
                   description:
                     "I'm Andre and I've worked as a freelance web developer for years. Let me help you become a developer as well!",
                   hourlyRate: 30
