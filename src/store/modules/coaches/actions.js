@@ -1,6 +1,6 @@
 export default {
   async registerCoach(context, data) {
-    const userId = context.rootGetters.userId
+    const userId = context.rootGetters.userId;
     const coachData = {
       firstName: data.first,
       lastName: data.last,
@@ -33,16 +33,18 @@ export default {
 
     const coaches = []
 
-      for (const key in responseData) {
-        const coach = {
-          firstName: responseData[key].firstName,
-          lastName: responseData[key].lastName,
-          description: responseData[key].description,
-          hourlyRate: responseData[key].hourlyRate,
-          areas: responseData[key].areas
-        }
-        coaches.push(coach)
-      }
-      context.commit('setCoaches', coaches)
+    for (const key in responseData) {
+      const coach = {
+        id: key,
+        firstName: responseData[key].firstName,
+        lastName: responseData[key].lastName,
+        description: responseData[key].description,
+        hourlyRate: responseData[key].hourlyRate,
+        areas: responseData[key].areas
+      };
+      coaches.push(coach);
+    }
+
+    context.commit('setCoaches', coaches);
   }
 };
