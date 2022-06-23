@@ -23,7 +23,12 @@ export default {
       id: userId
     });
   },
-  async loadCoaches(context) {
+  async loadCoaches(context, payload) {
+
+    if(!payload.forceRefresh && !context.getters.shouldUpdate) {
+      return
+    }
+
     const response = await fetch(`https://vue-first-project-19994-default-rtdb.asia-southeast1.firebasedatabase.app/coaches.json`)
     const responseData = await response.json()
 
@@ -47,5 +52,6 @@ export default {
     }
 
     context.commit('setCoaches', coaches);
+    context.commit('setFetchTimeStamp')
   }
 };
