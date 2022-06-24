@@ -11,20 +11,20 @@ export default {
                 })
             })
 
-            const responseData = await response.json()
+            const responseData = await response.json();
 
             if (!response.ok) {
-                console.log(responseData)
-                const error = new Error(responseData.message || 'Failed to authenticate.')
-                throw error
+              console.log(responseData);
+              const error = new Error(responseData.message || 'Failed to authenticate. Check your login data.');
+              throw error;
             }
-
-            console.log(responseData)
+        
+            console.log(responseData);
             context.commit('setUser', {
-                token: responseData.idToken,
-                userId: responseData.localId,
-                tokenExpiration: responseData.expiresIn
-            })
-        }
+              token: responseData.idToken,
+              userId: responseData.localId,
+              tokenExpiration: responseData.expiresIn
+            });
+          }
     
 }
