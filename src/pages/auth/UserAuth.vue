@@ -6,23 +6,28 @@
     <base-dialog :show="isLoading" title="Authenticating..." fixed>
       <base-spinner></base-spinner>
     </base-dialog>
-    <base-card>
+    <base-card2>
+      <div class="text-center mt-4">
+        <h2>{{ submitButtonCaption }}</h2>
+      </div>
       <form @submit.prevent="submitForm">
-        <div class="form-control">
-          <label for="email">E-Mail</label>
-          <input type="email" id="email" v-model.trim="email" />
+        <div class="mb-3">
+          <label class="form-label" for="email">Email Address</label>
+          <input type="email" class="form-control" id="email" v-model.trim="email" required/>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
-        <div class="form-control">
+        <div class="mb-3">
           <label for="password">Password</label>
-          <input type="password" id="password" v-model.trim="password" />
+          <input type="password" class="form-control" id="password" v-model.trim="password" required />
         </div>
-        <p
+        <div class="form-text"
           v-if="!formIsValid"
-        >Please enter a valid email and password (must be at least 6 characters long).</p>
-        <base-button>{{ submitButtonCaption }}</base-button>
-        <base-button type="button" mode="flat" @click="switchAuthMode">{{ switchModeButtonCaption }}</base-button>
+        >Please enter a valid email and password (must be at least 6 characters long).</div>
+
+        <base-button3>{{ submitButtonCaption }}</base-button3>
+        <base-button1 type="button" mode="flat" @click="switchAuthMode">{{ switchModeButtonCaption }}</base-button1>
       </form>
-    </base-card>
+    </base-card2>
   </div>
 </template>
 
@@ -79,8 +84,8 @@ export default {
         } else {
           await this.$store.dispatch('signup', actionPayload);
         }
-        const redirectUrl = '/' + (this.$route.query.redirect || 'coaches')
-        this.$router.replace(redirectUrl)
+        const redirectUrl = '/' + (this.$route.query.redirect || 'books');
+        this.$router.replace(redirectUrl);
       } catch (err) {
         this.error = err.message || 'Failed to authenticate, try later.';
       }

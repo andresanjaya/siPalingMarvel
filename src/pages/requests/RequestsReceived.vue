@@ -13,11 +13,13 @@
           <request-item
             v-for="req in receivedRequests"
             :key="req.id"
-            :email="req.userEmail"
-            :message="req.message"
+            :fullName="req.fullName"
+            :email="req.email"
+            :phoneNumber="req.phoneNumber"
+            :date="req.date"
           ></request-item>
         </ul>
-        <h3 v-else>You haven't received any requests yet!</h3>
+        <h3 class="mt-5" v-else>You haven't received any requests yet!</h3>
       </base-card>
     </section>
   </div>

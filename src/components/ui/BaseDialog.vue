@@ -13,7 +13,7 @@
         </section>
         <menu v-if="!fixed">
           <slot name="actions">
-            <base-button @click="tryClose">Close</base-button>
+            <base-button1 @click="tryClose">Close</base-button1>
           </slot>
         </menu>
       </dialog>
@@ -111,8 +111,9 @@ menu {
 .dialog-leave-active {
   transition: all 0.3s ease-in;
 }
+
 .dialog-enter-to,
-.dialog-leave.from {
+.dialog-leave-from {
   opacity: 1;
   transform: scale(1);
 }

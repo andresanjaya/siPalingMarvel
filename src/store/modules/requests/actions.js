@@ -1,8 +1,10 @@
 export default {
   async contactCoach(context, payload) {
     const newRequest = {
-      userEmail: payload.email,
-      message: payload.message
+      fullName: payload.fullName,
+      email: payload.email,
+      phoneNumber: payload.phoneNumber,
+      date: payload.date
     };
     const response = await fetch(
       `https://vue-first-project-19994-default-rtdb.asia-southeast1.firebasedatabase.app/requests/${payload.coachId}.json`,
@@ -30,8 +32,8 @@ export default {
     const coachId = context.rootGetters.userId;
     const token = context.rootGetters.token;
     const response = await fetch(
-      `https://vue-first-project-19994-default-rtdb.asia-southeast1.firebasedatabase.app/requests/${coachId}.json?auth=` + token
-      
+      `https://vue-first-project-19994-default-rtdb.asia-southeast1.firebasedatabase.app/requests/${coachId}.json?auth=` +
+        token
     );
     const responseData = await response.json();
 
@@ -48,8 +50,10 @@ export default {
       const request = {
         id: key,
         coachId: coachId,
-        userEmail: responseData[key].userEmail,
-        message: responseData[key].message
+        fullName: responseData[key].fullName,
+        phoneNumber: responseData[key].phoneNumber,
+        email: responseData[key].email,
+        date: responseData[key].date
       };
       requests.push(request);
     }

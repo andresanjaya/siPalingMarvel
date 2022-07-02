@@ -1,15 +1,16 @@
 <template>
   <li>
-    <div>
-      <a :href="emailLink">{{ email }}</a>
-    </div>
-    <p>{{ message }}</p>
+    <a :href="emailLink">{{ email }}</a>
+    <p><b>Username: </b>{{ fullName }}</p>
+    <p><b>Borrow Date: </b>{{ date }}</p>
+    <p><b>Phone Number: </b>{{ phoneNumber }}</p>
   </li>
+   
 </template>
 
 <script>
 export default {
-  props: ['email', 'message'],
+  props: ['fullName', 'email', 'phoneNumber' , 'date'],
   computed: {
     emailLink() {
       return 'mailto:' + this.email;
@@ -38,5 +39,9 @@ a:active {
 
 p {
   margin: 0.5rem 0 0 0;
+}
+
+h6 {
+  margin-top: 5px;
 }
 </style>
