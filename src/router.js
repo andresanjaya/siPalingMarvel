@@ -1,4 +1,4 @@
-import {defineAsyncComponent} from 'vue'
+// import {defineAsyncComponent} from 'vue'
 import { createRouter, createWebHistory } from 'vue-router';
 
 // import BookDetail from './pages/books/BookDetail.vue';
@@ -11,11 +11,11 @@ import NotFound from './pages/NotFound.vue';
 import store from './store/index.js';
 
 
-const BookDetail = defineAsyncComponent(() => import('./pages/books/BookDetail.vue'))
-const BookRegistration = defineAsyncComponent(() => import('./pages/books/BookRegistration.vue'))
-const RequestBook = defineAsyncComponent(() => import('./pages/requests/RequestBook.vue'))
-const RequestsReceived = defineAsyncComponent(() => import('./pages/requests/RequestsReceived.vue'))
-const UserAuth = defineAsyncComponent(() => import('./pages/auth/UserAuth.vue'))
+const BookDetail = () => import('./pages/books/BookDetail.vue');
+const BookRegistration = () =>  import('./pages/books/BookRegistration.vue')
+const RequestBook = () =>  import('./pages/requests/RequestBook.vue')
+const RequestsReceived = () =>  import('./pages/requests/RequestsReceived.vue')
+const UserAuth = () =>  import('./pages/auth/UserAuth.vue')
 
 const router = createRouter({
   history: createWebHistory(),

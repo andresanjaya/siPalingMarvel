@@ -42,7 +42,7 @@
       <p v-if="!publishDate.isValid">publishDate must not be empty.</p>
     </div>
     <div class="mb-3" :class="{invalid: !image.isValid}">
-      <label class="form-label" for="image">Image</label>
+      <label class="form-label" for="image">Image URL</label>
       <input
         class="form-control"
         type="text"
